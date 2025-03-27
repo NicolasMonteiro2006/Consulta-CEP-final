@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de CEP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .resultado {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Consulta de CEP</h1>
+    <label for="cep">Digite o CEP:</label>
+    <input type="text" id="cep" placeholder="Ex: 13466902" maxlength="9">
+    <button onclick="consultarCep()">Consultar</button>
+
+    <div id="resultado" class="resultado"></div>
+
+    <script>
+        async function consultarCep() {
+            let cep = document.getElementById('cep').value.replace(/\D/g, ''); // Remove caracteres não numéricos
+
+            if (cep.length !== 8) {
+                alert('Por favor, digite um CEP válido com 8 dígitos.');
+                return;
+            }
+
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = 'Consultando...';
+
+            try {
+                const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+                if (!response.ok) {
+                    throw new Error('Erro ao consultar o CEP.');
+                }
+                const dados = await response.json();
+
+                if (dados.erro) {
+                    throw new Error('CEP não encontrado.');
+                }
+
+                resultadoDiv.innerHTML = `
+                <strong>CEP:</strong> ${dados.cep}<br>
+                <strong>Logradouro:</strong> ${dados.logradouro || 'Não disponível'}<br>
+                <strong>Bairro:</strong> ${dados.bairro || 'Não disponível'}<br>
+                <strong>Cidade:</strong> ${dados.localidade}<br>
+                <strong>Estado:</strong> ${dados.uf}
+                `;
+
+            } catch (erro) {
+                resultadoDiv.innerHTML = `<span style="color: red;">Erro: ${erro.message}</span>`;
+            }
+        }
+    </script>
+</body>
+
+</html>
