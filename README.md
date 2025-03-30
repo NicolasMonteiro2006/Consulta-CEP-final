@@ -16,8 +16,8 @@ Esta é uma API simples de consulta de CEP, desenvolvida com **Node.js** e **Exp
 
 ### 1️⃣ **Clone o repositório**
 ```sh
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
-cd nome-do-repositorio
+git clone (https://github.com/NicolasMonteiro2006/Consulta-CEP-final.git)
+cd Consulta-CEP-final
 ```
 
 ### 2️⃣ **Instale as dependências**
