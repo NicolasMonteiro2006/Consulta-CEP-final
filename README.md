@@ -52,10 +52,10 @@ curl http://localhost:3000/consultar-cep/13466-902
 ```json
 {
   "cep": "13466-902",
-  "state": "SP",
-  "city": "Americana",
-  "neighborhood": "Parque Industrial Werner Plaas",
-  "street": "Avenida Nossa Senhora de Fátima"
+  "estado": "SP",
+  "cidade": "Americana",
+  "bairro": "Parque Industrial Werner Plaas",
+  "rua": "Avenida Nossa Senhora de Fátima"
 }
 ```
 
@@ -76,15 +76,8 @@ Se o CEP for inválido, a API retorna:
 
 ---
 
-## ⚠ Possíveis melhorias
-- Implementar autenticação (JWT, API Key, etc.)
-- Suporte a mais provedores de consulta de CEP
-- Adicionar testes automatizados
-
----
-
 ## 📝 Dificuldades encontradas
-*(Espaço para você descrever os desafios enfrentados durante o desenvolvimento.)*
+*As principais dificuldades para o projeto foi a falta de experiencia na linguagem utilizada, assim precisando de uma vasta pesquisa na area.*
 
 ---
 
