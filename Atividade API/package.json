@@ -9,7 +9,12 @@
     "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["API", "CEP", "Node.js", "Express"],
+  "keywords": [
+    "API",
+    "CEP",
+    "Node.js",
+    "Express"
+  ],
   "author": "Seu Nome",
   "license": "ISC",
   "dependencies": {

@@ -5,11 +5,15 @@ import cors from 'cors';
 const app = express();
 const port = 3000;
 
+app.get('/', (req, res) => {
+    res.send('Bem-vindo à API de Consulta de CEP! Use a rota /consultar-cep/:cep para consultar um CEP.');
+});
+
 app.use(cors());
 
 app.get('/consultar-cep/:cep', async (req, res) => {
     let { cep } = req.params;
-    cep = cep.replace(/\D/g, ''); // Remove caracteres não numéricos
+    cep = cep.replace(/\D/g, ''); 
 
     if (cep.length !== 8) {
         return res.status(400).json({ error: 'CEP inválido! Deve conter 8 dígitos numéricos.' });
